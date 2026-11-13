@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>راف کافی | منو</title>
+<meta name="description" content="منوی دیجیتال راف کافی">
+<meta name="theme-color" content="#061329">
+<link rel="icon" href="favicon.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --royal:#0739B8; --midnight:#061329; --electric:#287BFF; --cyan:#35E7FF; --white:#F4F7FF; --amber:#FFB765;
+  --muted:rgba(244,247,255,.72); --line:rgba(40,123,255,.28); --surface:#0a1d3d;
+  --font:'Vazirmatn',system-ui,-apple-system,'Segoe UI',Tahoma,sans-serif;
+  --rail-h:60px; --menu-bg:#0a2658;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--midnight);color:var(--white);font-family:var(--font);line-height:1.7;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--cyan);outline-offset:3px;border-radius:6px}
+
+/* HERO */
+.hero{position:relative;min-height:88svh;display:flex;align-items:flex-end;overflow:hidden;isolation:isolate;
+  background:var(--midnight) url(poster.jpg) center/cover no-repeat}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;z-index:-2}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(to top,var(--menu-bg) 0,rgba(10,38,88,.9) 14%,rgba(10,38,88,.5) 42%,rgba(10,38,88,.08) 72%),
+             linear-gradient(to bottom,rgba(6,19,41,.55),transparent 22%)}
+.nav{position:absolute;inset:0 0 auto 0;display:flex;align-items:center;justify-content:space-between;
+  padding:max(14px,env(safe-area-inset-top)) clamp(16px,4vw,48px) 0}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;font-weight:800;letter-spacing:.04em}
+.logo{width:48px;height:48px;border-radius:50%;overflow:hidden;flex:none;box-shadow:0 0 0 2px rgba(255,255,255,.18)}
+.logo img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);display:block}
+.pill{display:inline-flex;align-items:center;gap:.5rem;min-height:44px;padding:0 1.2rem;border-radius:99px;text-decoration:none;
+  font-weight:600;font-size:.95rem;background:rgba(6,19,41,.55);border:1px solid var(--line);backdrop-filter:blur(6px);transition:background .2s,border-color .2s}
+.pill:hover{background:var(--royal);border-color:var(--electric)}
+.hero-copy{width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(18px,5vw,56px) clamp(40px,9vh,88px)}
+.hero h1{font-size:clamp(2.2rem,8.6vw,5.8rem);font-weight:900;line-height:1.25;letter-spacing:-.01em}
+.hero h1 span{display:block;white-space:nowrap}
+.hero .en{margin-top:1rem;font-family:system-ui,sans-serif;direction:ltr;text-align:right;font-weight:600;letter-spacing:.16em;color:var(--cyan);font-size:.85rem;text-transform:uppercase;text-shadow:0 0 18px rgba(53,231,255,.45)}
+.cta{margin-top:1.8rem;display:inline-flex;align-items:center;gap:.8rem;min-height:56px;padding:0 1.7rem;border-radius:99px;
+  background:var(--electric);color:#fff;font-weight:800;font-size:1.05rem;text-decoration:none;box-shadow:0 10px 40px -8px rgba(40,123,255,.8);transition:transform .2s,background .2s}
+.cta:hover{background:var(--royal);transform:translateY(-2px)}
+.cta svg{width:20px;height:20px}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.hero h1,.hero .en,.hero .cta{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.hero .en{animation-delay:.3s}.hero .cta{animation-delay:.5s}
+.hero .quote{margin-top:1.1rem;max-width:28ch;font-size:clamp(1.1rem,3.8vw,1.55rem);font-weight:600;line-height:1.7;text-shadow:0 2px 18px rgba(6,19,41,.75);animation:rise .9s cubic-bezier(.2,.7,.2,1) .15s both}
+
+/* MENU — neo-brutalist (ROAST-inspired) on the video's own deep blue */
+main{background:var(--menu-bg);color:var(--white);padding:clamp(28px,6vw,64px) clamp(16px,4vw,48px) 3.5rem}
+.wrap{max-width:1180px;margin:0 auto}
+.m-title{font-size:clamp(3.6rem,13vw,7.5rem);font-weight:900;line-height:1.05;margin-bottom:1.2rem}
+.search{display:flex;border:3px solid var(--white);background:#fff;max-width:760px;cursor:text;transition:box-shadow .15s}
+.search input{flex:1;min-width:0;border:0;border-radius:0;padding:0 1rem;min-height:58px;font:600 1.1rem var(--font);background:#fff;color:var(--midnight);-webkit-appearance:none}
+.search input::placeholder{color:#5b6475}
+.search input:focus-visible{outline:none}
+.search:focus-within{box-shadow:5px 5px 0 var(--electric)}
+.search span{display:grid;place-items:center;width:66px;background:var(--electric);color:#fff}
+.chips{position:sticky;top:0;z-index:20;background:var(--menu-bg);display:flex;gap:.7rem;overflow-x:auto;scrollbar-width:none;padding:.9rem 6px .9rem 0;padding-top:calc(.9rem + env(safe-area-inset-top,0px))}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;min-height:48px;padding:0 1.3rem;border:3px solid var(--white);background:transparent;color:var(--white);font:800 1.05rem var(--font);cursor:pointer;transition:transform .2s,background .2s,color .2s,border-color .2s}
+.chip:active{transform:scale(.94)}
+@keyframes chipPop{0%{transform:scale(1) rotate(0)}35%{transform:scale(1.12) rotate(-4deg)}65%{transform:scale(.97) rotate(1deg)}100%{transform:scale(1) rotate(-1.5deg)}}
+.chip.pop{animation:chipPop .45s cubic-bezier(.3,1.4,.5,1)}
+@keyframes cardIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.card.in{animation:cardIn .4s cubic-bezier(.2,.7,.2,1) backwards;animation-delay:calc(var(--i,0)*30ms)}
+.chip:hover{background:rgba(244,247,255,.14);transform:translateY(-2px)}
+.chip[aria-pressed="true"]{background:var(--electric);border-color:var(--electric);color:#fff;transform:rotate(-1.5deg)}
+.count{font-weight:900;font-size:1.3rem;margin:.6rem 0 1.4rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,400px),1fr));gap:1.5rem 1.4rem}
+.card{display:flex;flex-wrap:wrap;align-items:flex-end;gap:.9rem 1rem;background:#fff;color:var(--midnight);border:3px solid var(--white);box-shadow:6px 6px 0 var(--electric);padding:1rem 1.2rem 1.2rem;transition:transform .15s,box-shadow .15s;-webkit-tap-highlight-color:transparent}
+@media (hover:hover){.card:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--electric)}}
+.card:active{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--electric)}
+.txt{flex:1 1 11rem;min-width:0;display:flex;flex-direction:column;gap:.3rem}
+.card small{font-weight:800;font-size:.95rem}
+.card h3{font-size:clamp(1.75rem,6.4vw,2.3rem);font-weight:900;line-height:1.3;letter-spacing:-.01em}
+.card p{font-size:1rem;font-weight:500}
+.card img{flex:0 0 100%;width:100%;aspect-ratio:4/3;object-fit:cover;border:3px solid var(--midnight)}
+.prices{display:flex;align-items:center;gap:.6rem;margin-inline-start:auto}
+.price{background:var(--midnight);color:#fff;font-weight:900;font-size:1.85rem;line-height:1.45;padding:.05rem .9rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.u{font-weight:800;font-size:.95rem;white-space:nowrap}
+.price.na{background:none;color:var(--midnight);border:2px dashed var(--midnight);font-size:1rem;font-weight:700}
+.prices.two{flex:1 0 100%;flex-direction:column;align-items:stretch;gap:.5rem;margin:0}
+.sz{display:flex;align-items:center;gap:.6rem;font-weight:800}
+.sz b{min-width:4.2rem}
+.card.house{background:var(--royal);color:var(--white);border-color:var(--electric);box-shadow:6px 6px 0 var(--electric)}
+.card.house .price{background:var(--electric);color:#fff}.card.house .price em{color:#fff}
+.empty{grid-column:1/-1;font-weight:800;font-size:1.3rem;padding:2rem 0}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);background:#040d1d;padding:2.5rem clamp(18px,4vw,48px) calc(2.5rem + env(safe-area-inset-bottom))}
+.foot{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:auto 1fr 1fr 1.4fr;gap:1.5rem 2rem;align-items:center}
+.foot dt{font-size:.85rem;color:var(--muted)}
+.foot dd{font-weight:600;margin:0}
+.foot .ph{color:var(--amber);font-weight:400;font-size:.9rem}
+.ic{display:inline-flex;align-items:center;gap:.7rem;text-decoration:none;font-weight:600;min-height:48px}
+.ic-b{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:2px solid var(--electric);color:var(--white);transition:background .2s,transform .2s}
+.ic-b svg{width:22px;height:22px}
+.ic:hover .ic-b{background:var(--electric);transform:translateY(-2px)}
+.hrs{display:grid;gap:.35rem;max-width:21rem}
+.hrow{display:flex;justify-content:space-between;gap:1rem;white-space:nowrap}
+.hrow span{color:var(--muted);font-weight:400}
+@media (max-width:820px){.f-hours{grid-column:1/-1}}
+.top{position:fixed;inset-inline-start:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:30;width:40px;height:40px;border-radius:50%;border:1px solid rgba(244,247,255,.35);background:rgba(10,38,88,.78);backdrop-filter:blur(4px);color:#fff;display:grid;place-items:center;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s}
+.top.on{opacity:.9;pointer-events:auto}
+
+@media (max-width:820px){
+  .cat{grid-template-columns:1fr;padding:2.4rem 0}
+  .cat-head{position:static}
+  .list{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr 1fr}
+  .foot>:first-child{grid-column:1/-1}
+  .pizza{grid-template-columns:1fr auto auto;gap:.6rem 1rem;padding:1rem}
+  .sz{min-width:64px}.sizes .legend span{min-width:64px}.sizes .legend{gap:1rem;padding:0 1rem}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<header class="hero" id="home">
+  <video id="heroVideo" autoplay muted loop playsinline preload="auto" poster="poster.jpg" aria-hidden="true">
+    <source src="hero.mp4" type="video/mp4">
+  </video>
+  <nav class="nav" aria-label="ناوبری اصلی">
+    <a class="brand" href="#home" aria-label="راف کافی؛ بازگشت به بالا">
+      <span class="logo"><img src="logo.jpg" alt="لوگوی راف کافی؛ گربهٔ عینکی با فنجان قهوه" width="96" height="96"></span>
+    </a>
+    <a class="pill" href="#menu">منو</a>
+  </nav>
+  <div class="hero-copy">
+    <h1><span>بالاخره پیدا کردم،</span><span>کافه خیالم را…</span></h1>
+    <p class="en">Your daily dose of cool</p>
+    <a class="cta" href="#menu">مشاهدهٔ منو
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16M5 13l7 7 7-7"/></svg>
+    </a>
+  </div>
+</header>
+
+<main id="menu">
+  <div class="wrap">
+    <h2 class="m-title">منو</h2>
+    <label class="search">
+      <input id="q" type="search" placeholder="جستجو در منو..." aria-label="جستجو در منو" autocomplete="off" enterkeyhint="search">
+      <span aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.8-4.8"/></svg></span>
+    </label>
+    <div class="chips" id="chips" role="group" aria-label="دسته‌بندی منو"></div>
+    <p class="count" id="count" aria-live="polite"></p>
+    <div class="grid" id="grid"></div>
+  </div>
+</main>
+
+<footer>
+  <dl class="foot" id="footer">
+    <div><span class="logo" style="display:block"><img src="logo.jpg" alt="راف کافی" width="96" height="96" loading="lazy"></span></div>
+  </dl>
+</footer>
+
+<button class="top" id="top" aria-label="بازگشت به بالا">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20V4M5 11l7-7 7 7"/></svg>
+</button>
+
+<script>
+/* ============ CONTENT: edit here ============ */
+// Cafe info — leave '' until you have it; placeholders show automatically.
+const INFO = {
+  address: 'https://maps.app.goo.gl/6FVg6oZYGE6uZaQ38?g_st=ic',
+  hours: 'شنبه تا پنجشنبه: ۱۰ صبح تا ۱۰ شب\nجمعه‌ها: ۵ عصر تا ۱۰ شب',
+  instagram: '@cafe__raf',
+  phone: ''
+};
+
+// Item: [name, price] (price null = not yet entered). Optional 3rd value: image path, e.g. 'menu/latte.jpg'.
+const MENU = [
+ {id:'espresso',t:'پایه اسپرسو',items:[['اسپرسو',125],['دبل اسپرسو',140],['آمریکانو',145],['لاته',190],['ماچالاته',215],['موکا',210],['کارامل ماکیاتو',210],['کاپوچینو',195],['قهوه ترک',145],['نسکافه',150],['شیر نسکافه',195]]},
+ {id:'iced',t:'آیس کافی',items:[['آیس آمریکانو',155],['آیس لاته',210],['آیس موکا',225],['آیس کارامل ماکیاتو',225],['آفوگاتو',235]]},
+ {id:'hot',t:'گرم نوش',items:[['هات چاکلت',215],['وایت چاکلت',215],['ماسالا',215],['چای کرک',235],['چای مراکشی',155],['هات پسته زعفرانی',245],['شیرکاکائو',175],['چای با سرویس',65],['چای ترش',140],['چای سبز',135],['چای دارچین',85],['چای ماچا (سرد و گرم)',185],['دمنوش زعفران',265],['دمنوش آرامبخش',175],['دمنوش سرماخوردگی',175],['دمنوش لیمونعناع',175]]},
+ {id:'shake',t:'شیک',items:[['شیک اسپرسو',255],['شیک نوتلا',270],['شیک شکلات',255],['شیک موز وانیل',295],['شیک موز شکلات',310],['شیک بادام زمینی',275],['شیک توت فرنگی',290],['شیک اوریو',285],['شیک موز و بادام زمینی',315],['شیک لوتوس',265],['شیک پسته',325],['شیک وانیل',245]]},
+ {id:'smoothie',t:'اسموتی',items:[['اسموتی توت فرنگی',245],['اسموتی طالبی',195],['اسموتی موز توت فرنگی',295],['اسموتی هندوانه',165],['شیر موز',210],['معجون',285]]},
+ {id:'mocktail',t:'موکتل',items:[['موهیتو',195],['ردموهیتو',225],['لیموناد',215]]},
+ {id:'cake',t:'کیک و دسر',items:[['کیک شکلاتی',255],['کیک روز',295],['تیرامیسو',365],['بستنی',255]]},
+ {id:'pancake',t:'پنکیک',items:[['پنکیک نوتلا',325],['پنکیک شکلات',295],['پنکیک عسل',310],['پنکیک موز شکلات',345],['پنکیک موز توت فرنگی شکلات',375]]},
+ {id:'crepe',t:'کرپ',items:[['کرپ نوتلا',315],['کرپ شکلات',290],['کرپ عسل',305],['کرپ موز شکلات',335],['کرپ موز توت فرنگی شکلات',355],['کرپ بادام زمینی با سس شکلات',375],['کرپ لوتوس با سس شکلات',395]]},
+ {id:'waffle',t:'وافل',items:[['وافل نوتلا',325],['وافل شکلات',305],['وافل موز شکلات',350],['وافل موز توت فرنگی شکلات',385],['وافل بادام زمینی با سس شکلات',315],['وافل لوتوس با سس شکلات',315]]},
+ {id:'breakfast',t:'صبحانه',items:[['املت کلاسیک',225],['املت پنیری',275],['املت اسپیشال',335],['املت سوجوق',345],['نیمرو',185],['سوسیس نیمرو',255],['قیساوا گردویی',285]]},
+ {id:'burger',t:'برگر و ساندویچ',items:[['کلاسیک برگر',255],['چیز برگر',455],['اسپیشال برگر',545],['ساندویچ فیله مرغ',395],['هات داگ ساده',285],['هات داگ پنیری',335],['هات داگ مخصوص',395]]},
+ {id:'pizza',t:'پیتزا',cols:['دونفره','تکنفره'],items:[['سیسیلی',665,465],['چیکن لاور',695,495],['پپرونی',645,445],['مخصوص راف',790,590]]},
+ {id:'pasta',t:'پاستا',items:[['چیکن آلفردو',515],['پاستا تنوری',565],['لازانیا',535]]},
+ {id:'snack',t:'اسنک',note:'در هر بشقاب ۲ عدد سرو می‌شود.',items:[['اسنک ژامبون و قارچ',365],['اسنک سوجوق',415],['اسنک مرغ',445],['اسنک مخصوص',465]]},
+ {id:'starter',t:'پیش‌غذا',items:[['سیب زمینی رست شده',265],['سیب زمینی پنیری',345],['سیب زمینی با سس قارچ',395],['سیب زمینی مخصوص',445],['چیکن باربیکیو',425],['سالاد سزار',495],['چیپس پنیری مخصوص',295],['ذرت پنیری',295]]},
+ {id:'drinks',t:'نوشیدنی',note:'قیمت‌ها هنوز ثبت نشده است.',items:[['کوکا',null],['فانتا',null],['اسپرایت',null],['ماء الشعیر',null],['دوغ',null],['انرژی زا',null],['آب معدنی',null]]}
+];
+
+/* ============ RENDER ============ */
+const fa = v => String(v).replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]);
+const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const norm = s => String(s).replace(/ي/g,'ی').replace(/ك/g,'ک').replace(/[\u200c\u200b]/g,' ').toLowerCase().trim();
+
+const ALL = MENU.flatMap(cat => cat.items.map(it => ({ cat, it })));
+const grid = document.getElementById('grid'), chipsEl = document.getElementById('chips'),
+      countEl = document.getElementById('count'), q = document.getElementById('q');
+let active = 'all';
+
+const toman = n => fa(n);
+function card({ cat, it }) {
+  const [name, a, b] = it, house = /مخصوص راف/.test(name);
+  const c = el('article', 'card' + (house ? ' house' : ''));
+  if (!cat.cols && it[2]) c.append(Object.assign(el('img'), { src: it[2], alt: name, loading: 'lazy', width: 320, height: 240 }));
+  const t = el('div', 'txt', `<small>${esc(cat.t)}</small><h3>${esc(name)}</h3>`);
+  if (cat.id === 'snack' && cat.note) t.append(el('p', '', esc(cat.note)));
+  c.append(t);
+  const pr = el('div', 'prices' + (cat.cols ? ' two' : ''));
+  if (cat.cols) cat.cols.forEach((l, i) => pr.append(el('div', 'sz', `<b>${l}</b><span class="price">${toman(i ? b : a)}</span><span class="u">تومان</span>`)));
+  else if (a == null) pr.append(el('span', 'price na', 'قیمت ثبت نشده'));
+  else pr.append(el('span', 'price', toman(a)), el('span', 'u', 'تومان'));
+  c.append(pr);
+  return c;
+}
+
+function render() {
+  const term = norm(q.value);
+  const list = ALL.filter(({ cat, it }) => (active === 'all' || cat.id === active) && norm(it[0]).includes(term));
+  const nodes = list.map((x, i) => { const c = card(x); if (i < 16) { c.style.setProperty('--i', i); c.classList.add('in'); } return c; });
+  grid.replaceChildren(...(nodes.length ? nodes : [el('p', 'empty', 'موردی پیدا نشد.')]));
+  countEl.textContent = fa(list.length) + ' مورد';
+}
+
+function setActive(id) {
+  active = id;
+  chipsEl.querySelectorAll('.chip').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.id === id)));
+}
+
+[{ id: 'all', t: 'همه' }, ...MENU].forEach(c => {
+  const b = el('button', 'chip', esc(c.t)); b.type = 'button'; b.dataset.id = c.id;
+  b.addEventListener('click', () => {
+    setActive(c.id); render();
+    b.classList.remove('pop'); void b.offsetWidth; b.classList.add('pop');
+    b.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
+    const y = countEl.getBoundingClientRect().top + scrollY - 120;
+    if (scrollY > y) scrollTo({ top: y });
+  });
+  chipsEl.append(b);
+});
+q.addEventListener('input', () => { if (q.value.trim() && active !== 'all') setActive('all'); render(); });
+setActive('all'); render();
+
+/* Footer: real value → text/link; empty → clearly marked placeholder */
+const foot = document.getElementById('footer');
+const ICONS = {
+  map: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>',
+  ig: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>'
+};
+const iconLink = (href, svg, text, label) =>
+  `<a class="ic" href="${esc(href)}" target="_blank" rel="noopener" aria-label="${label}"><span class="ic-b">${svg}</span><span>${text}</span></a>`;
+const PH = '<span class="ph">به‌زودی اضافه می‌شود</span>';
+const igUser = (INFO.instagram || '').replace('@', '');
+const hoursHtml = INFO.hours
+  ? '<span class="hrs">' + INFO.hours.split('\n').map(l => { const k = l.indexOf(':'); return `<span class="hrow"><span>${esc(l.slice(0, k))}</span><b>${esc(l.slice(k + 1).trim())}</b></span>`; }).join('') + '</span>'
+  : PH;
+[
+  ['آدرس', /^https?:/.test(INFO.address) ? iconLink(INFO.address, ICONS.map, 'مشاهده روی نقشه', 'مشاهدهٔ آدرس روی نقشه') : (INFO.address ? esc(INFO.address) : PH), ''],
+  ['اینستاگرام', igUser ? iconLink('https://instagram.com/' + igUser, ICONS.ig, `<span dir="ltr">@${esc(igUser)}</span>`, 'صفحهٔ اینستاگرام راف کافی') : PH, ''],
+  ['ساعت کاری', hoursHtml, 'f-hours']
+].forEach(([label, html, cls]) => foot.append(el('div', cls, `<dt>${label}</dt><dd>${html}</dd>`)));
+
+/* ============ BEHAVIOUR ============ */
+// Video: honour reduced motion, tolerate blocked autoplay (poster stays visible)
+const vid = document.getElementById('heroVideo');
+if (matchMedia('(prefers-reduced-motion: reduce)').matches) { vid.removeAttribute('autoplay'); vid.pause(); }
+else vid.play().catch(() => {});
+
+// Back-to-top
+const toTopBtn = document.getElementById('top');
+toTopBtn.addEventListener('click', () => scrollTo({ top: 0 }));
+// Show only while scrolling up, never over the footer, so it never hides text
+let lastY = scrollY, inFooter = false;
+addEventListener('scroll', () => {
+  const y = scrollY;
+  if (y > lastY + 4) toTopBtn.classList.remove('on');
+  else if (y < lastY - 4 && y > innerHeight && !inFooter) toTopBtn.classList.add('on');
+  if (y < innerHeight) toTopBtn.classList.remove('on');
+  lastY = y;
+}, { passive: true });
+if ('IntersectionObserver' in window) new IntersectionObserver(e => { inFooter = e[0].isIntersecting; if (inFooter) toTopBtn.classList.remove('on'); }).observe(document.querySelector('footer'));
+</script>
+</body>
+</html>
